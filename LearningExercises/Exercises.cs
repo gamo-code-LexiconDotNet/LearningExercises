@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Text;
 
 namespace LearningExercises
 {
@@ -10,8 +11,8 @@ namespace LearningExercises
             var firstName = "Gabriel";
             var lastName = "Molander";
 
-            Console.WriteLine( "Hello {0} {1}! I’m glad to inform you that" +
-                " you are the test subject of my very first assignment!", 
+            Console.WriteLine("Hello {0} {1}! I’m glad to inform you that" +
+                " you are the test subject of my very first assignment!",
                 firstName, lastName);
         }
 
@@ -101,9 +102,9 @@ namespace LearningExercises
                 return;
             }
 
-            Console.WriteLine("Area: {0:0.00}", 
+            Console.WriteLine("Area: {0:0.00}",
                 Math.PI * Math.Pow(r, 2));
-            Console.WriteLine("Volume: {0:0.00}", 
+            Console.WriteLine("Volume: {0:0.00}",
                 (4 * Math.PI * Math.Pow(r, 3) / 3));
         }
 
@@ -186,7 +187,7 @@ namespace LearningExercises
                 Console.Clear();
                 switch (menuChoice)
                 {
-                    case "0": 
+                    case "0":
                         Console.ResetColor();
                         return;
                     case "1":
@@ -201,7 +202,7 @@ namespace LearningExercises
                         else
                             Console.ForegroundColor = ConsoleColor.Green;
                         continue;
-                    default: 
+                    default:
                         break;
                 }
 
@@ -213,7 +214,7 @@ namespace LearningExercises
             {
                 double a, b;
 
-                if(!TryReadNumber(out a))
+                if (!TryReadNumber(out a))
                     return;
 
                 if (!TryReadNumber(out b))
@@ -242,7 +243,7 @@ namespace LearningExercises
             int num;
 
             Console.Write("Enter a number above zero: ");
-                
+
             if (!int.TryParse(Console.ReadLine(), out num))
             {
                 Console.WriteLine("You must enter a number.");
@@ -276,6 +277,20 @@ namespace LearningExercises
 
                 Console.WriteLine(i);
             }
+        }
+
+        private static void RunExerciseTwelve()
+        {
+            StringBuilder buffer = new StringBuilder();
+
+            for (int i = 1; i < 11; i++)
+            {
+                for (int j = 1; j < 11; j++)
+                    buffer.AppendFormat("{0, 4}", i * j);
+                buffer.Append("\n");
+            }
+
+            Console.WriteLine(buffer.ToString());
         }
     }
 }
