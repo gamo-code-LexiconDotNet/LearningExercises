@@ -474,6 +474,29 @@ namespace LearningExercises
             WriteLine("Denomination count: {0}", denominationCount);
         }
 
+        private static void RunExerciseTwenty()
+        {
+            int length = random.Next(10, 21);
+            int[] array1 = new int[length];
+            int[] array2 = new int[length];
+
+            for (int i = 0; i < length; i++)
+                array1[i] = random.Next(1, length * length + 1);
+
+            int left = 0;
+            int right = length - 1;
+            for (int i = 0; i < length; i++)
+            {
+                if (array1[i] % 2 == 0)
+                    array2[right--] = array1[i];
+                else
+                    array2[left++] = array1[i];
+            }
+
+            WriteLine(string.Join(", ", array1));
+            WriteLine(string.Join(", ", array2));
+        }
+
         private static Random random = new Random();
     } // class
 } // namespace
