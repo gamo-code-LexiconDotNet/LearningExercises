@@ -62,5 +62,33 @@ namespace LearningExercises
 
             Console.WriteLine(str);
         }
+
+        private static void RunExerciseSix()
+        {
+            int a, b;
+
+            Console.Write("Input an integer: ");
+            if (!int.TryParse(Console.ReadLine(), out a))
+            {
+                Console.WriteLine("You must input a number.");
+                return;
+            }
+
+            Console.Write("Input another integer: ");
+            if (!int.TryParse(Console.ReadLine(), out b))
+            {
+                Console.WriteLine("You must input a number.");
+                return;
+            }
+
+            Console.WriteLine("Max: {0}", Math.Max(a, b));
+            Console.WriteLine("Min: {0}", Math.Min(a, b));
+            Console.WriteLine("Difference: {0}", Math.Abs(a - b));
+            Console.WriteLine("Sum: {0}", a + b);
+            if (b != 0)
+                Console.WriteLine("Ratio: {0:0.00}", a / (double)b);
+            else
+                Console.WriteLine("Ratio: Cannot divide by zero.");
+        }
     }
 }
