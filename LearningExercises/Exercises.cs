@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Text;
 using static System.Console;
 
@@ -505,6 +507,39 @@ namespace LearningExercises
             WriteLine("Min: {0}", Min(numbers));
             WriteLine("Max: {0}", Max(numbers));
             WriteLine("Mean: {0}", Mean(numbers));
+        }
+
+        private static void RunExerciseTwentyTwo()
+        {
+            string[] profanityList;
+            try
+            {
+                profanityList = File.ReadAllLines("./profanity.txt");
+            }
+            catch
+            {
+                WriteLine("Could not read from file.");
+                return;
+            }
+
+            Write("Input words: ");
+            string input = ReadLine();
+ 
+            for (int i = 0; i < profanityList.Length; i++)
+            {
+                if (input.Contains(profanityList[i]))
+                {
+                    string pfnty = profanityList[i];
+                    int len = pfnty.Length;
+                    string sanitized = 
+                        pfnty[0]
+                        + "".PadLeft(len - 2, '*')
+                        + pfnty[len - 1];
+                    input = input.Replace(pfnty, sanitized);
+                }
+            }
+
+            WriteLine(input);
         }
 
         private static Random random = new Random();
