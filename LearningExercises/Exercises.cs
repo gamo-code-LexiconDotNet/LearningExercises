@@ -410,6 +410,22 @@ namespace LearningExercises
             WriteLine();
         }
 
+        private static void RunExerciseSeventeen()
+        {
+            Write("Input a word or sentence: ");
+            string input = ReadLine().ToLower().Replace(" ", "");
+
+            for (int i = 0, j = input.Length - 1; i < j; i++, j--)
+            {
+                if (input[i] != input[j])
+                {
+                    WriteLine("Not a palindrome.");
+                    return;
+                }
+            }
+            WriteLine("Palindrome.");
+        }
+
         /********************************************************************
         * Non-exercise helper functions
         */
