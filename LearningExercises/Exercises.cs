@@ -446,5 +446,34 @@ namespace LearningExercises
             foreach (double q in quota)
                 WriteLine(format, q);
         }
+
+        private static void RunExerciseNineteen()
+        {
+            // Must be in order high to low
+            int[] coinDenominations = {
+                1000, 500, 100, 50, 20, 10, 5, 1
+            };
+
+            int amountToPay = random.Next(1, coinDenominations[0] * 2 + 1);
+            WriteLine("Amount to pay: {0}", amountToPay);
+
+            int amountHandedOver = ReadNumber<int>("Amount handed over: ");
+
+            int calculatedChange = amountHandedOver - amountToPay;
+            WriteLine("Calculated change: {0}", calculatedChange);
+
+            int denominationCount = 0;
+            for (int i = 0; i < coinDenominations.Length; i++)
+            {
+                int qoutient = calculatedChange / coinDenominations[i];
+                calculatedChange -= coinDenominations[i] * qoutient;
+                denominationCount += qoutient;
+                
+                WriteLine("{0} coins = {1}", coinDenominations[i], qoutient);
+            }
+            WriteLine("Denomination count: {0}", denominationCount);
+        }
+
+        private static Random random = new Random();
     } // class
 } // namespace
