@@ -167,5 +167,75 @@ namespace LearningExercises
                     Console.WriteLine("No ther options are available.");
             }
         }
+        private static void RunExerciseTen()
+        {
+            Console.ResetColor();
+            while (true)
+            {
+                Console.Clear();
+                Console.Write(
+                    "Choose what to do:\n" +
+                    "1) Divide two numbers.\n" +
+                    "2) Run exercise 4\n" +
+                    "3) Switch console text color\n" +
+                    "0) Exit\n" +
+                    "> ");
+
+                string menuChoice = Console.ReadLine();
+
+                Console.Clear();
+                switch (menuChoice)
+                {
+                    case "0": 
+                        Console.ResetColor();
+                        return;
+                    case "1":
+                        DivideNumbers();
+                        break;
+                    case "2":
+                        RunExerciseFour();
+                        break;
+                    case "3":
+                        if (Console.ForegroundColor != ConsoleColor.Red)
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        else
+                            Console.ForegroundColor = ConsoleColor.Green;
+                        continue;
+                    default: 
+                        break;
+                }
+
+                Console.Write("\nPress any key to coninue...");
+                Console.ReadKey();
+            }
+
+            void DivideNumbers()
+            {
+                double a, b;
+
+                if(!TryReadNumber(out a))
+                    return;
+
+                if (!TryReadNumber(out b))
+                    return;
+
+                if (b != 0)
+                    Console.WriteLine("{0:0.###}", a / b);
+                else
+                    Console.WriteLine("Cannot divide by zero.");
+            }
+
+            bool TryReadNumber(out double num)
+            {
+                Console.Write("Input a number: ");
+                if (!double.TryParse(Console.ReadLine(), out num))
+                {
+                    Console.WriteLine("You must input a number.");
+                    return false;
+                }
+                return true;
+            }
+
+        }
     }
 }
