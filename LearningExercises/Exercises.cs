@@ -26,5 +26,15 @@ namespace LearningExercises
             Console.WriteLine("Tomorrows date is {0}.", tomorrow.ToShortDateString());
             Console.WriteLine("Yesterdays date was {0}.", yesterday.ToShortDateString());
         }
+
+        private static void RunExerciseThree()
+        {
+            Console.Write("Enter your first name: ");
+            var firstName = Console.ReadLine();
+            Console.Write("Enter your last name: ");
+            var lastName = Console.ReadLine();
+
+            Console.WriteLine("Your full name is {0} {1}", firstName, lastName);
+        }
     }
 }

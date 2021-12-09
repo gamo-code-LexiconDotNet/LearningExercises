@@ -23,7 +23,7 @@ namespace LearningExercises
                             RunExerciseTwo();
                             break;
                         case 3:
-                            // Call your next assignment here
+                            RunExerciseThree();
                             break;
                         case -1:
                             keepAlive = false;
