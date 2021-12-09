@@ -40,6 +40,9 @@ namespace LearningExercises
                         case 8:
                             RunExerciseEight();
                             break;
+                        case 9:
+                            RunExerciseNine();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Globalization;
 
 namespace LearningExercises
 {
@@ -122,6 +121,51 @@ namespace LearningExercises
             Console.WriteLine("Square root: {0:0.00}", Math.Sqrt(a));
             Console.WriteLine("Cube: {0:0.00}", Math.Pow(a, 2));
             Console.WriteLine("Power 10: {0:0.00}", Math.Pow(a, 10));
+        }
+
+        private static void RunExerciseNine()
+        {
+            string name;
+            DateTime birthdate;
+            string dateFormat = "yy-MM-dd";
+
+            Console.Write("Hello, what is your name?: ");
+            name = Console.ReadLine();
+
+            Console.Write("Hello {0}, what is your birth date ({1})?: ", name, dateFormat);
+            if (!DateTime.TryParseExact(
+                Console.ReadLine(),
+                dateFormat,
+                new CultureInfo("sv-SE"),
+                DateTimeStyles.None,
+                out birthdate))
+            {
+                Console.WriteLine("You must input a date in the right format.");
+                return;
+            }
+
+            string answer;
+            bool hadBeer = false;
+            bool isOfAge = birthdate.AddYears(18) < DateTime.Now;
+            if (isOfAge)
+            {
+                Console.Write("Do you want a beer? y/n: ");
+                answer = Console.ReadLine();
+                if (answer.ToLower() == "y")
+                {
+                    Console.WriteLine("Thankyou for your order.");
+                    hadBeer = true;
+                }
+            }
+            if (!hadBeer)
+            {
+                Console.Write("Do you want a coke? y/n: ");
+                answer = Console.ReadLine();
+                if (answer.ToLower() == "y")
+                    Console.WriteLine("Here is your coke.");
+                else
+                    Console.WriteLine("No ther options are available.");
+            }
         }
     }
 }
