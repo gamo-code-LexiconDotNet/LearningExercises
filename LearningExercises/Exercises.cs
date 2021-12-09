@@ -542,6 +542,32 @@ namespace LearningExercises
             WriteLine(input);
         }
 
-        private static Random random = new Random();
+        private static void RunExerciseTwentyThree()
+        {
+            int[] array = new int[7];
+
+            int i = 0;
+            int rnd;
+            while (i < 7)
+            {
+                rnd = random.Next(1, 41);
+
+                if (!scanCompare(array, rnd, i))
+                    continue;
+
+                array[i++] = rnd;
+            }
+            WriteLine(String.Join(", ",array));
+
+            static bool scanCompare(int[] array, int rnd, int i)
+            {
+                for (int j = 0; j < i; j++)
+                    if (array[j] == rnd)
+                        return false;
+                return true;
+            }
+        }
+
+        private static readonly Random random = new Random();
     } // class
 } // namespace

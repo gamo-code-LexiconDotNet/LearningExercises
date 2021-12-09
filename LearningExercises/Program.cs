@@ -38,6 +38,7 @@ namespace LearningExercises
                         case 20: RunExerciseTwenty(); break;
                         case 21: RunExerciseTwentyOne(); break;
                         case 22: RunExerciseTwentyTwo(); break;
+                        case 23: RunExerciseTwentyThree(); break;
                         case 0: keepAlive = false; break;
                         default:
                             Console.ForegroundColor= ConsoleColor.Red;
