@@ -90,5 +90,22 @@ namespace LearningExercises
             else
                 Console.WriteLine("Ratio: Cannot divide by zero.");
         }
+
+        private static void RunExerciseSeven()
+        {
+            double r;
+
+            Console.Write("Input a circle radius: ");
+            if (!double.TryParse(Console.ReadLine(), out r))
+            {
+                Console.WriteLine("You must input a number.");
+                return;
+            }
+
+            Console.WriteLine("Area: {0:0.00}", 
+                Math.PI * Math.Pow(r, 2));
+            Console.WriteLine("Volume: {0:0.00}", 
+                (4 * Math.PI * Math.Pow(r, 3) / 3));
+        }
     }
 }
