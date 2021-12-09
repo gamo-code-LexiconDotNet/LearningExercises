@@ -393,14 +393,31 @@ namespace LearningExercises
             }
         }
 
+        private static void RunExerciseSixteen()
+        {
+            int num = ReadNumber<int>();
+
+            int a = 0;
+            int b = 1;
+            int next = 1;
+            for (int i = 0; i < num; i++)
+            {
+                Write("{0}{1}", a, i < num - 1 ? ", ": "");
+                a = b;
+                b = next;
+                next = a + b;
+            }
+            WriteLine();
+        }
+
         /********************************************************************
-         * Non-exercise helper functions
-         */
+        * Non-exercise helper functions
+        */
 
         private static T ReadNumber<T>(
-            string msg = "Input a number: ",
-            string err = "You must input a number: "
-            )
+        string msg = "Input a number: ",
+        string err = "You must input a number: "
+        )
         {
             T num;
             string input;
