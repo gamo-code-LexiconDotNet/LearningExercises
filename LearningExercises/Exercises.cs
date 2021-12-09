@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Globalization;
 using System.Text;
 using static System.Console;
@@ -426,34 +425,26 @@ namespace LearningExercises
             WriteLine("Palindrome.");
         }
 
-        /********************************************************************
-        * Non-exercise helper functions
-        */
-
-        private static T ReadNumber<T>(
-        string msg = "Input a number: ",
-        string err = "You must input a number: "
-        )
+        private static void RunExerciseEighteen()
         {
-            T num;
-            string input;
+            Random random = new Random();
 
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
+            int length = ReadNumber<int>("How many numbers: ");
+            int range = length * length + 1;
+            int rlen = range.ToString().Length;
 
-            Write($"{msg}");
-            while (true)
-            {
-                input = ReadLine();
-                try
-                {
-                    num = (T)converter.ConvertFromString(input);
-                    return num;
-                }
-                catch
-                {
-                    Write($"{err}");
-                }
-            }
+            int[] denominator = new int[length];
+            double[] quota = new double[length];
+
+            for (int i = 0; i < length; i++)
+                denominator[i] = random.Next(-range, range);
+
+            for (int i = 0; i < length; i++)
+                quota[i] = 1.0 / denominator[i];
+
+            string format = "{0," + (rlen + 3) + ":0." + "".PadLeft(rlen, '0') + "}";
+            foreach (double q in quota)
+                WriteLine(format, q);
         }
     } // class
 } // namespace

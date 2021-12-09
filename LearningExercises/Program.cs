@@ -11,7 +11,7 @@ namespace LearningExercises
             {
                 try
                 {
-                    Console.Write("Enter assignment number (or -1 to exit): ");
+                    Console.Write("Enter assignment number (or 0 to exit): ");
                     var assignmentChoice = int.Parse(Console.ReadLine() ?? "");
                     Console.ForegroundColor = ConsoleColor.Green;
                     switch (assignmentChoice)
@@ -33,7 +33,8 @@ namespace LearningExercises
                         case 15: RunExerciseFifteen(); break;
                         case 16: RunExerciseSixteen(); break;
                         case 17: RunExerciseSeventeen(); break;
-                        case -1: keepAlive = false; break;
+                        case 18: RunExerciseEighteen(); break;
+                        case 0: keepAlive = false; break;
                         default:
                             Console.ForegroundColor= ConsoleColor.Red;
                             Console.WriteLine("That is not a valid assignment number!");
