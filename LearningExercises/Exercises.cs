@@ -18,7 +18,13 @@ namespace LearningExercises
 
         private static void RunExerciseTwo()
         {
-            Console.WriteLine("You successfully ran exercise two!");
+            var today = DateTime.Today;
+            var tomorrow = today.AddDays(1);
+            var yesterday = today.AddDays(-1);
+
+            Console.WriteLine("Todays date is {0}.", today.ToShortDateString());
+            Console.WriteLine("Tomorrows date is {0}.", tomorrow.ToShortDateString());
+            Console.WriteLine("Yesterdays date was {0}.", yesterday.ToShortDateString());
         }
     }
 }
