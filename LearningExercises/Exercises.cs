@@ -107,5 +107,21 @@ namespace LearningExercises
             Console.WriteLine("Volume: {0:0.00}", 
                 (4 * Math.PI * Math.Pow(r, 3) / 3));
         }
+
+        private static void RunExerciseEight()
+        {
+            double a;
+
+            Console.Write("Input a decimal number: ");
+            if (!double.TryParse(Console.ReadLine(), out a))
+            {
+                Console.WriteLine("You must input a decimal number.");
+                return;
+            }
+
+            Console.WriteLine("Square root: {0:0.00}", Math.Sqrt(a));
+            Console.WriteLine("Cube: {0:0.00}", Math.Pow(a, 2));
+            Console.WriteLine("Power 10: {0:0.00}", Math.Pow(a, 10));
+        }
     }
 }
