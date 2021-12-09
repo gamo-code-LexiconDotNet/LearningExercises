@@ -25,6 +25,9 @@ namespace LearningExercises
                         case 3:
                             RunExerciseThree();
                             break;
+                        case 4:
+                            RunExerciseFour();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;

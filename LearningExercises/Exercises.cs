@@ -36,5 +36,19 @@ namespace LearningExercises
 
             Console.WriteLine("Your full name is {0} {1}", firstName, lastName);
         }
+
+        private static void RunExerciseFour()
+        {
+            string str = "The quick fox Jumped Over the DOG";
+
+            str = str
+            .Replace("quick", "brown")
+            .Insert(str.IndexOf("DOG"), "lazy ")
+            .ToLower()
+            .Substring(1)
+            .Insert(0, str[0].ToString());
+
+            Console.WriteLine(str);
+        }
     }
 }
