@@ -292,5 +292,38 @@ namespace LearningExercises
 
             Console.WriteLine(buffer.ToString());
         }
+
+        private static void RunExerciseThirteen()
+        {
+            Random random = new Random();
+
+            int number = random.Next(1, 501);
+            int guess;
+            int guesses = 0;
+
+            while (true)
+            {
+                Console.Write("Guess {0} number: ",
+                    guesses > 0 ? "another" : "a");
+                
+                if(!int.TryParse(Console.ReadLine(), out guess))
+                {
+                    Console.WriteLine("You must input a number");
+                    continue;
+                }
+
+                guesses++;
+
+                if (guess == number)
+                {
+                    Console.WriteLine("Correct after {0} tries.", guesses);
+                    return;
+                }
+                else if (guess < number)
+                    Console.WriteLine("Guess was too small.");
+                else
+                    Console.WriteLine("Guess was too big.");
+            }
+        }
     }
 }

@@ -52,6 +52,9 @@ namespace LearningExercises
                         case 12:
                             RunExerciseTwelve();
                             break;
+                        case 13:
+                            RunExerciseThirteen();
+                            break;
                         case -1:
                             keepAlive = false;
                             break;
