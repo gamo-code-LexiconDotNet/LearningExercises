@@ -305,8 +305,8 @@ namespace LearningExercises
             {
                 Console.Write("Guess {0} number: ",
                     guesses > 0 ? "another" : "a");
-                
-                if(!int.TryParse(Console.ReadLine(), out guess))
+
+                if (!int.TryParse(Console.ReadLine(), out guess))
                 {
                     Console.WriteLine("You must input a number");
                     continue;
@@ -323,6 +323,38 @@ namespace LearningExercises
                     Console.WriteLine("Guess was too small.");
                 else
                     Console.WriteLine("Guess was too big.");
+            }
+        }
+
+        private static void RunExerciseFourteen()
+        {
+            int total = 0;
+            int i = 0;
+
+            while (true)
+            {
+                Console.Write("Enter a number: ");
+
+                if (!int.TryParse(Console.ReadLine(), out int num))
+                {
+                    Console.WriteLine("You must input a number");
+                    continue;
+                }
+
+                if (num == -1)
+                {
+                    if (i > 0)
+                    {
+                        Console.WriteLine("Sum: {0}", total);
+                        Console.WriteLine("Mean: {0}", total / i);
+                    }
+                    return;
+                }
+
+
+                total += num;
+                i++;
+
             }
         }
     }
