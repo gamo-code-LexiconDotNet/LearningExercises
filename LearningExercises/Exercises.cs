@@ -50,5 +50,17 @@ namespace LearningExercises
 
             Console.WriteLine(str);
         }
+
+        private static void RunExerciseFive()
+        {
+            string str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
+
+            str = str
+            .Insert(str.Length - 1, ",6,7,8,9,10")
+            .Substring(str.IndexOf("["))
+            .Replace("2,3,", "");
+
+            Console.WriteLine(str);
+        }
     }
 }
