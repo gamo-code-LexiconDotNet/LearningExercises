@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Text;
+using static System.Console;
 
 namespace LearningExercises
 {
@@ -11,7 +13,7 @@ namespace LearningExercises
             var firstName = "Gabriel";
             var lastName = "Molander";
 
-            Console.WriteLine("Hello {0} {1}! I’m glad to inform you that" +
+            WriteLine("Hello {0} {1}! I’m glad to inform you that" +
                 " you are the test subject of my very first assignment!",
                 firstName, lastName);
         }
@@ -22,19 +24,19 @@ namespace LearningExercises
             var tomorrow = today.AddDays(1);
             var yesterday = today.AddDays(-1);
 
-            Console.WriteLine("Todays date is {0}.", today.ToShortDateString());
-            Console.WriteLine("Tomorrows date is {0}.", tomorrow.ToShortDateString());
-            Console.WriteLine("Yesterdays date was {0}.", yesterday.ToShortDateString());
+            WriteLine("Todays date is {0}.", today.ToShortDateString());
+            WriteLine("Tomorrows date is {0}.", tomorrow.ToShortDateString());
+            WriteLine("Yesterdays date was {0}.", yesterday.ToShortDateString());
         }
 
         private static void RunExerciseThree()
         {
-            Console.Write("Enter your first name: ");
-            var firstName = Console.ReadLine();
-            Console.Write("Enter your last name: ");
-            var lastName = Console.ReadLine();
+            Write("Enter your first name: ");
+            var firstName = ReadLine();
+            Write("Enter your last name: ");
+            var lastName = ReadLine();
 
-            Console.WriteLine("Your full name is {0} {1}", firstName, lastName);
+            WriteLine("Your full name is {0} {1}", firstName, lastName);
         }
 
         private static void RunExerciseFour()
@@ -48,7 +50,7 @@ namespace LearningExercises
             .Substring(1)
             .Insert(0, str[0].ToString());
 
-            Console.WriteLine(str);
+            WriteLine(str);
         }
 
         private static void RunExerciseFive()
@@ -60,51 +62,51 @@ namespace LearningExercises
             .Substring(str.IndexOf("["))
             .Replace("2,3,", "");
 
-            Console.WriteLine(str);
+            WriteLine(str);
         }
 
         private static void RunExerciseSix()
         {
             int a, b;
 
-            Console.Write("Input an integer: ");
-            if (!int.TryParse(Console.ReadLine(), out a))
+            Write("Input an integer: ");
+            if (!int.TryParse(ReadLine(), out a))
             {
-                Console.WriteLine("You must input a number.");
+                WriteLine("You must input a number.");
                 return;
             }
 
-            Console.Write("Input another integer: ");
-            if (!int.TryParse(Console.ReadLine(), out b))
+            Write("Input another integer: ");
+            if (!int.TryParse(ReadLine(), out b))
             {
-                Console.WriteLine("You must input a number.");
+                WriteLine("You must input a number.");
                 return;
             }
 
-            Console.WriteLine("Max: {0}", Math.Max(a, b));
-            Console.WriteLine("Min: {0}", Math.Min(a, b));
-            Console.WriteLine("Difference: {0}", Math.Abs(a - b));
-            Console.WriteLine("Sum: {0}", a + b);
+            WriteLine("Max: {0}", Math.Max(a, b));
+            WriteLine("Min: {0}", Math.Min(a, b));
+            WriteLine("Difference: {0}", Math.Abs(a - b));
+            WriteLine("Sum: {0}", a + b);
             if (b != 0)
-                Console.WriteLine("Ratio: {0:0.00}", a / (double)b);
+                WriteLine("Ratio: {0:0.00}", a / (double)b);
             else
-                Console.WriteLine("Ratio: Cannot divide by zero.");
+                WriteLine("Ratio: Cannot divide by zero.");
         }
 
         private static void RunExerciseSeven()
         {
             double r;
 
-            Console.Write("Input a circle radius: ");
-            if (!double.TryParse(Console.ReadLine(), out r))
+            Write("Input a circle radius: ");
+            if (!double.TryParse(ReadLine(), out r))
             {
-                Console.WriteLine("You must input a number.");
+                WriteLine("You must input a number.");
                 return;
             }
 
-            Console.WriteLine("Area: {0:0.00}",
+            WriteLine("Area: {0:0.00}",
                 Math.PI * Math.Pow(r, 2));
-            Console.WriteLine("Volume: {0:0.00}",
+            WriteLine("Volume: {0:0.00}",
                 (4 * Math.PI * Math.Pow(r, 3) / 3));
         }
 
@@ -112,16 +114,16 @@ namespace LearningExercises
         {
             double a;
 
-            Console.Write("Input a decimal number: ");
-            if (!double.TryParse(Console.ReadLine(), out a))
+            Write("Input a decimal number: ");
+            if (!double.TryParse(ReadLine(), out a))
             {
-                Console.WriteLine("You must input a decimal number.");
+                WriteLine("You must input a decimal number.");
                 return;
             }
 
-            Console.WriteLine("Square root: {0:0.00}", Math.Sqrt(a));
-            Console.WriteLine("Cube: {0:0.00}", Math.Pow(a, 2));
-            Console.WriteLine("Power 10: {0:0.00}", Math.Pow(a, 10));
+            WriteLine("Square root: {0:0.00}", Math.Sqrt(a));
+            WriteLine("Cube: {0:0.00}", Math.Pow(a, 2));
+            WriteLine("Power 10: {0:0.00}", Math.Pow(a, 10));
         }
 
         private static void RunExerciseNine()
@@ -130,18 +132,18 @@ namespace LearningExercises
             DateTime birthdate;
             string dateFormat = "yy-MM-dd";
 
-            Console.Write("Hello, what is your name?: ");
-            name = Console.ReadLine();
+            Write("Hello, what is your name?: ");
+            name = ReadLine();
 
-            Console.Write("Hello {0}, what is your birth date ({1})?: ", name, dateFormat);
+            Write("Hello {0}, what is your birth date ({1})?: ", name, dateFormat);
             if (!DateTime.TryParseExact(
-                Console.ReadLine(),
+                ReadLine(),
                 dateFormat,
                 new CultureInfo("sv-SE"),
                 DateTimeStyles.None,
                 out birthdate))
             {
-                Console.WriteLine("You must input a date in the right format.");
+                WriteLine("You must input a date in the right format.");
                 return;
             }
 
@@ -150,31 +152,31 @@ namespace LearningExercises
             bool isOfAge = birthdate.AddYears(18) < DateTime.Now;
             if (isOfAge)
             {
-                Console.Write("Do you want a beer? y/n: ");
-                answer = Console.ReadLine();
+                Write("Do you want a beer? y/n: ");
+                answer = ReadLine();
                 if (answer.ToLower() == "y")
                 {
-                    Console.WriteLine("Thankyou for your order.");
+                    WriteLine("Thankyou for your order.");
                     hadBeer = true;
                 }
             }
             if (!hadBeer)
             {
-                Console.Write("Do you want a coke? y/n: ");
-                answer = Console.ReadLine();
+                Write("Do you want a coke? y/n: ");
+                answer = ReadLine();
                 if (answer.ToLower() == "y")
-                    Console.WriteLine("Here is your coke.");
+                    WriteLine("Here is your coke.");
                 else
-                    Console.WriteLine("No ther options are available.");
+                    WriteLine("No ther options are available.");
             }
         }
         private static void RunExerciseTen()
         {
-            Console.ResetColor();
+            ResetColor();
             while (true)
             {
-                Console.Clear();
-                Console.Write(
+                Clear();
+                Write(
                     "Choose what to do:\n" +
                     "1) Divide two numbers.\n" +
                     "2) Run exercise 4\n" +
@@ -182,13 +184,13 @@ namespace LearningExercises
                     "0) Exit\n" +
                     "> ");
 
-                string menuChoice = Console.ReadLine();
+                string menuChoice = ReadLine();
 
-                Console.Clear();
+                Clear();
                 switch (menuChoice)
                 {
                     case "0":
-                        Console.ResetColor();
+                        ResetColor();
                         return;
                     case "1":
                         DivideNumbers();
@@ -197,17 +199,17 @@ namespace LearningExercises
                         RunExerciseFour();
                         break;
                     case "3":
-                        if (Console.ForegroundColor != ConsoleColor.Red)
-                            Console.ForegroundColor = ConsoleColor.Red;
+                        if (ForegroundColor != ConsoleColor.Red)
+                            ForegroundColor = ConsoleColor.Red;
                         else
-                            Console.ForegroundColor = ConsoleColor.Green;
+                            ForegroundColor = ConsoleColor.Green;
                         continue;
                     default:
                         break;
                 }
 
-                Console.Write("\nPress any key to coninue...");
-                Console.ReadKey();
+                Write("\nPress any key to coninue...");
+                ReadKey();
             }
 
             void DivideNumbers()
@@ -221,17 +223,17 @@ namespace LearningExercises
                     return;
 
                 if (b != 0)
-                    Console.WriteLine("{0:0.###}", a / b);
+                    WriteLine("{0:0.###}", a / b);
                 else
-                    Console.WriteLine("Cannot divide by zero.");
+                    WriteLine("Cannot divide by zero.");
             }
 
             bool TryReadNumber(out double num)
             {
-                Console.Write("Input a number: ");
-                if (!double.TryParse(Console.ReadLine(), out num))
+                Write("Input a number: ");
+                if (!double.TryParse(ReadLine(), out num))
                 {
-                    Console.WriteLine("You must input a number.");
+                    WriteLine("You must input a number.");
                     return false;
                 }
                 return true;
@@ -242,40 +244,40 @@ namespace LearningExercises
         {
             int num;
 
-            Console.Write("Enter a number above zero: ");
+            Write("Enter a number above zero: ");
 
-            if (!int.TryParse(Console.ReadLine(), out num))
+            if (!int.TryParse(ReadLine(), out num))
             {
-                Console.WriteLine("You must enter a number.");
+                WriteLine("You must enter a number.");
                 return;
             }
 
             if (num < 1)
             {
-                Console.WriteLine("You must enter a number above zero.");
+                WriteLine("You must enter a number above zero.");
                 return;
             }
 
             for (int i = 1; i < num + 1; i++)
             {
                 if (i % 2 == 0)
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    ForegroundColor = ConsoleColor.Red;
                 else
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    ForegroundColor = ConsoleColor.Green;
 
-                Console.WriteLine(i);
+                WriteLine(i);
             }
 
-            Console.WriteLine("----------");
+            WriteLine("----------");
 
             for (int i = num; i > 0; i--)
             {
                 if (i % 2 == 0)
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    ForegroundColor = ConsoleColor.Red;
                 else
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    ForegroundColor = ConsoleColor.Green;
 
-                Console.WriteLine(i);
+                WriteLine(i);
             }
         }
 
@@ -290,7 +292,7 @@ namespace LearningExercises
                 buffer.Append("\n");
             }
 
-            Console.WriteLine(buffer.ToString());
+            WriteLine(buffer.ToString());
         }
 
         private static void RunExerciseThirteen()
@@ -303,12 +305,12 @@ namespace LearningExercises
 
             while (true)
             {
-                Console.Write("Guess {0} number: ",
+                Write("Guess {0} number: ",
                     guesses > 0 ? "another" : "a");
 
-                if (!int.TryParse(Console.ReadLine(), out guess))
+                if (!int.TryParse(ReadLine(), out guess))
                 {
-                    Console.WriteLine("You must input a number");
+                    WriteLine("You must input a number");
                     continue;
                 }
 
@@ -316,13 +318,13 @@ namespace LearningExercises
 
                 if (guess == number)
                 {
-                    Console.WriteLine("Correct after {0} tries.", guesses);
+                    WriteLine("Correct after {0} tries.", guesses);
                     return;
                 }
                 else if (guess < number)
-                    Console.WriteLine("Guess was too small.");
+                    WriteLine("Guess was too small.");
                 else
-                    Console.WriteLine("Guess was too big.");
+                    WriteLine("Guess was too big.");
             }
         }
 
@@ -333,11 +335,11 @@ namespace LearningExercises
 
             while (true)
             {
-                Console.Write("Enter a number: ");
+                Write("Enter a number: ");
 
-                if (!int.TryParse(Console.ReadLine(), out int num))
+                if (!int.TryParse(ReadLine(), out int num))
                 {
-                    Console.WriteLine("You must input a number");
+                    WriteLine("You must input a number");
                     continue;
                 }
 
@@ -345,8 +347,8 @@ namespace LearningExercises
                 {
                     if (i > 0)
                     {
-                        Console.WriteLine("Sum: {0}", total);
-                        Console.WriteLine("Mean: {0}", total / i);
+                        WriteLine("Sum: {0}", total);
+                        WriteLine("Mean: {0}", total / i);
                     }
                     return;
                 }
@@ -357,5 +359,68 @@ namespace LearningExercises
 
             }
         }
-    }
-}
+
+        private static void RunExerciseFifteen()
+        {
+            // Part 1
+            int num = ReadNumber<int>();
+            for (int i = num / 2; i > 1; i--)
+            {
+                if (num % i == 0)
+                    Write($"{i}, ");
+            }
+            WriteLine(1);
+
+            WriteLine("-------");
+
+            // Part 2
+            int sum;
+            int outputs = 3;
+            for (int i = 3; outputs > 0; i++)
+            {
+                sum = 0;
+                for (int j = i / 2; j > 0; j--)
+                {
+                    if (i % j == 0)
+                        sum += j;
+                }
+
+                if (i == sum)
+                {
+                    WriteLine(sum);
+                    outputs--;
+                }
+            }
+        }
+
+        /********************************************************************
+         * Non-exercise helper functions
+         */
+
+        private static T ReadNumber<T>(
+            string msg = "Input a number: ",
+            string err = "You must input a number: "
+            )
+        {
+            T num;
+            string input;
+
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
+
+            Write($"{msg}");
+            while (true)
+            {
+                input = ReadLine();
+                try
+                {
+                    num = (T)converter.ConvertFromString(input);
+                    return num;
+                }
+                catch
+                {
+                    Write($"{err}");
+                }
+            }
+        }
+    } // class
+} // namespace

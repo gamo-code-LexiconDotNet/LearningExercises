@@ -16,51 +16,22 @@ namespace LearningExercises
                     Console.ForegroundColor = ConsoleColor.Green;
                     switch (assignmentChoice)
                     {
-                        case 1:
-                            RunExerciseOne();
-                            break;
-                        case 2:
-                            RunExerciseTwo();
-                            break;
-                        case 3:
-                            RunExerciseThree();
-                            break;
-                        case 4:
-                            RunExerciseFour();
-                            break;
-                        case 5:
-                            RunExerciseFive();
-                            break;
-                        case 6:
-                            RunExerciseSix();
-                            break;
-                        case 7:
-                            RunExerciseSeven();
-                            break;
-                        case 8:
-                            RunExerciseEight();
-                            break;
-                        case 9:
-                            RunExerciseNine();
-                            break;
-                        case 10:
-                            RunExerciseTen();
-                            break;
-                        case 11:
-                            RunExerciseEleven();
-                            break;
-                        case 12:
-                            RunExerciseTwelve();
-                            break;
-                        case 13:
-                            RunExerciseThirteen();
-                            break;
-                        case 14:
-                            RunExerciseFourteen();
-                            break;
-                        case -1:
-                            keepAlive = false;
-                            break;
+                        case 1: RunExerciseOne(); break;
+                        case 2: RunExerciseTwo(); break;
+                        case 3: RunExerciseThree(); break;
+                        case 4: RunExerciseFour(); break;
+                        case 5: RunExerciseFive(); break;
+                        case 6: RunExerciseSix(); break;
+                        case 7: RunExerciseSeven(); break;
+                        case 8: RunExerciseEight(); break;
+                        case 9: RunExerciseNine(); break;
+                        case 10: RunExerciseTen(); break;
+                        case 11: RunExerciseEleven(); break;
+                        case 12: RunExerciseTwelve(); break;
+                        case 13: RunExerciseThirteen(); break;
+                        case 14: RunExerciseFourteen(); break;
+                        case 15: RunExerciseFifteen(); break;
+                        case -1: keepAlive = false; break;
                         default:
                             Console.ForegroundColor= ConsoleColor.Red;
                             Console.WriteLine("That is not a valid assignment number!");
