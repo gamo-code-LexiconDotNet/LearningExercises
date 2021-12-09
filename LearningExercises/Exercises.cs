@@ -235,7 +235,47 @@ namespace LearningExercises
                 }
                 return true;
             }
+        }
 
+        private static void RunExerciseEleven()
+        {
+            int num;
+
+            Console.Write("Enter a number above zero: ");
+                
+            if (!int.TryParse(Console.ReadLine(), out num))
+            {
+                Console.WriteLine("You must enter a number.");
+                return;
+            }
+
+            if (num < 1)
+            {
+                Console.WriteLine("You must enter a number above zero.");
+                return;
+            }
+
+            for (int i = 1; i < num + 1; i++)
+            {
+                if (i % 2 == 0)
+                    Console.ForegroundColor = ConsoleColor.Red;
+                else
+                    Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine(i);
+            }
+
+            Console.WriteLine("----------");
+
+            for (int i = num; i > 0; i--)
+            {
+                if (i % 2 == 0)
+                    Console.ForegroundColor = ConsoleColor.Red;
+                else
+                    Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine(i);
+            }
         }
     }
 }
