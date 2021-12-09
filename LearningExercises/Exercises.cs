@@ -497,6 +497,16 @@ namespace LearningExercises
             WriteLine(string.Join(", ", array2));
         }
 
+        private static void RunExerciseTwentyOne()
+        {
+            int[] numbers = ReadCommaSeparatedNumbers();
+
+            WriteLine(string.Join(", ", numbers));
+            WriteLine("Min: {0}", Min(numbers));
+            WriteLine("Max: {0}", Max(numbers));
+            WriteLine("Mean: {0}", Mean(numbers));
+        }
+
         private static Random random = new Random();
     } // class
 } // namespace
