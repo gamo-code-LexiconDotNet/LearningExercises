@@ -514,7 +514,7 @@ namespace LearningExercises
             string[] profanityList;
             try
             {
-                profanityList = File.ReadAllLines("./profanity.txt");
+                profanityList = File.ReadAllLines("./Profanity.txt");
             }
             catch
             {
@@ -639,20 +639,74 @@ namespace LearningExercises
 
         private static void RunExerciseTwentySix()
         {
+            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
+            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Cookies));
+            WriteLine(Environment.CurrentDirectory);
+
             try
             {
-                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
-                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
-                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Cookies));
-                WriteLine(Environment.CurrentDirectory);
-            } 
+                File.Create(pathNamesDesktop).Close();
+            }
             catch (Exception ex)
             {
                 WriteLine($"{ex.Message}");
             }
         }
 
+        private static void RunExerciseTwentySeven()
+        {
+            try
+            {
+                StreamReader sr = new StreamReader(pathNamesLocal);
+                while (!sr.EndOfStream)
+                    WriteLine(sr.ReadLine());
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+                WriteLine($"{ex.Message}");
+            }
+        }
+
+        private static void RunExerciseTwentyEight()
+        {
+            string[] names1 = { "Alice", "Bob", "Carol", "Dave", "Eve" };
+            string[] names2 = { "Frank", "Grace", "Harry", "Irene", "John" };
+
+            try
+            {
+                StreamWriter sw = new StreamWriter(pathNamesDesktop);
+                foreach (string name in names1)
+                {
+                    sw.WriteLine(name);
+                }
+                sw.Close();
+
+                sw = new StreamWriter(pathNamesDesktop, true);
+                foreach (string name in names2)
+                {
+                    sw.WriteLine(name);
+                }
+                sw.Close();
+
+                StreamReader sr = new StreamReader(pathNamesDesktop);
+                while (!sr.EndOfStream)
+                    WriteLine(sr.ReadLine());
+                sr.Close();
+            }
+            catch (Exception ex)
+            {
+                WriteLine($"{ex.Message}");
+            }
+        }
+
+        private static readonly string pathNamesDesktop = 
+            Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 
+            + "\\Names.txt";
+        private static readonly string pathNamesLocal = 
+            Environment.CurrentDirectory + "\\Names.txt";
         private static readonly Random random = new Random();
     } // class
 } // namespace
