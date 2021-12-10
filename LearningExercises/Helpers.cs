@@ -57,32 +57,6 @@ namespace LearningExercises
             return numbers;
         }
 
-        private static int Min(int[] array)
-        {
-            int min = array[0];
-            for (int i = 1; i < array.Length; i++)
-                if (array[i] < min)
-                    min = array[i];
-            return min;
-        }
-
-        private static int Max(int[] array)
-        {
-            int max = array[0];
-            for (int i = 1; i < array.Length; i++)
-                if (array[i] > max)
-                    max = array[i];
-            return max;
-        }
-
-        private static double Mean(int[] array)
-        {
-            int sum = 0;
-            for (int i = 1; i < array.Length; i++)
-                sum += array[i];
-            return sum / (double)array.Length;
-        }
-
         // from stackoverflow
         public static bool IsNumeric(Type type)
         {

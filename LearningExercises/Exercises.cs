@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
@@ -14,9 +13,9 @@ namespace LearningExercises
             var firstName = "Gabriel";
             var lastName = "Molander";
 
-            WriteLine("Hello {0} {1}! I’m glad to inform you that" +
-                " you are the test subject of my very first assignment!",
-                firstName, lastName);
+            WriteLine($"Hello {firstName} {lastName}! I’m glad to inform "
+                + "you that you are the test subject of my very first "
+                + "assignment!");
         }
 
         private static void RunExerciseTwo()
@@ -25,9 +24,12 @@ namespace LearningExercises
             var tomorrow = today.AddDays(1);
             var yesterday = today.AddDays(-1);
 
-            WriteLine("Todays date is {0}.", today.ToShortDateString());
-            WriteLine("Tomorrows date is {0}.", tomorrow.ToShortDateString());
-            WriteLine("Yesterdays date was {0}.", yesterday.ToShortDateString());
+            WriteLine("Todays date is {0}.", 
+                today.ToShortDateString());
+            WriteLine("Tomorrows date is {0}.", 
+                tomorrow.ToShortDateString());
+            WriteLine("Yesterdays date was {0}.", 
+                yesterday.ToShortDateString());
         }
 
         private static void RunExerciseThree()
@@ -37,48 +39,47 @@ namespace LearningExercises
             Write("Enter your last name: ");
             var lastName = ReadLine();
 
-            WriteLine("Your full name is {0} {1}", firstName, lastName);
+            WriteLine($"Your full name is {firstName} {lastName}");
         }
 
         private static void RunExerciseFour()
         {
             string str = "The quick fox Jumped Over the DOG";
 
-            str = str
-            .Replace("quick", "brown")
-            .Insert(str.IndexOf("DOG"), "lazy ")
-            .ToLower()
-            .Substring(1)
-            .Insert(0, str[0].ToString());
-
-            WriteLine(str);
+            WriteLine(
+                str
+                .Replace("quick", "brown")
+                .Insert(str.IndexOf("DOG"), "lazy ")
+                .ToLower()
+                .Substring(1)
+                .Insert(0, str[0].ToString())
+                );
         }
 
         private static void RunExerciseFive()
         {
-            string str = "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
+            string str = "Arrays are very common in programming, " +
+                "they look something like: [1,2,3,4,5]";
 
-            str = str
-            .Insert(str.Length - 1, ",6,7,8,9,10")
-            .Substring(str.IndexOf("["))
-            .Replace("2,3,", "");
-
-            WriteLine(str);
+            WriteLine(
+                str
+                .Insert(str.Length - 1, ",6,7,8,9,10")
+                .Substring(str.IndexOf("["))
+                .Replace("2,3,", "")
+                );
         }
 
         private static void RunExerciseSix()
         {
-            int a, b;
-
             Write("Input an integer: ");
-            if (!int.TryParse(ReadLine(), out a))
+            if (!int.TryParse(ReadLine(), out int a))
             {
                 WriteLine("You must input a number.");
                 return;
             }
 
             Write("Input another integer: ");
-            if (!int.TryParse(ReadLine(), out b))
+            if (!int.TryParse(ReadLine(), out int b))
             {
                 WriteLine("You must input a number.");
                 return;
@@ -96,10 +97,8 @@ namespace LearningExercises
 
         private static void RunExerciseSeven()
         {
-            double r;
-
-            Write("Input a circle radius: ");
-            if (!double.TryParse(ReadLine(), out r))
+            Write("Input a radius: ");
+            if (!double.TryParse(ReadLine(), out double r))
             {
                 WriteLine("You must input a number.");
                 return;
@@ -113,36 +112,34 @@ namespace LearningExercises
 
         private static void RunExerciseEight()
         {
-            double a;
-
             Write("Input a decimal number: ");
-            if (!double.TryParse(ReadLine(), out a))
+            if (!double.TryParse(ReadLine(), out double a))
             {
                 WriteLine("You must input a decimal number.");
                 return;
             }
 
             WriteLine("Square root: {0:0.00}", Math.Sqrt(a));
-            WriteLine("Cube: {0:0.00}", Math.Pow(a, 2));
+            WriteLine("Square: {0:0.00}", Math.Pow(a, 2));
             WriteLine("Power 10: {0:0.00}", Math.Pow(a, 10));
         }
 
         private static void RunExerciseNine()
         {
-            string name;
-            DateTime birthdate;
+            
             string dateFormat = "yy-MM-dd";
 
             Write("Hello, what is your name?: ");
-            name = ReadLine();
+            string name = ReadLine();
 
-            Write("Hello {0}, what is your birth date ({1})?: ", name, dateFormat);
+            Write("Hello {0}, what is your birth date ({1})?: ", 
+                name, dateFormat);
             if (!DateTime.TryParseExact(
                 ReadLine(),
                 dateFormat,
                 new CultureInfo("sv-SE"),
                 DateTimeStyles.None,
-                out birthdate))
+                out DateTime birthdate))
             {
                 WriteLine("You must input a date in the right format.");
                 return;
@@ -157,7 +154,7 @@ namespace LearningExercises
                 answer = ReadLine();
                 if (answer.ToLower() == "y")
                 {
-                    WriteLine("Thankyou for your order.");
+                    WriteLine("Thank you for your order.");
                     hadBeer = true;
                 }
             }
@@ -168,12 +165,11 @@ namespace LearningExercises
                 if (answer.ToLower() == "y")
                     WriteLine("Here is your coke.");
                 else
-                    WriteLine("No ther options are available.");
+                    WriteLine("We do not have anything else.");
             }
         }
         private static void RunExerciseTen()
         {
-            ResetColor();
             while (true)
             {
                 Clear();
@@ -209,18 +205,16 @@ namespace LearningExercises
                         break;
                 }
 
-                Write("\nPress any key to coninue...");
+                Write("\nPress any key to continue...");
                 ReadKey();
             }
 
             void DivideNumbers()
             {
-                double a, b;
-
-                if (!TryReadNumber(out a))
+                if (!TryReadNumber(out double a))
                     return;
 
-                if (!TryReadNumber(out b))
+                if (!TryReadNumber(out double b))
                     return;
 
                 if (b != 0)
@@ -243,11 +237,8 @@ namespace LearningExercises
 
         private static void RunExerciseEleven()
         {
-            int num;
-
             Write("Enter a number above zero: ");
-
-            if (!int.TryParse(ReadLine(), out num))
+            if (!int.TryParse(ReadLine(), out int num))
             {
                 WriteLine("You must enter a number.");
                 return;
@@ -298,10 +289,7 @@ namespace LearningExercises
 
         private static void RunExerciseThirteen()
         {
-            Random random = new Random();
-
             int number = random.Next(1, 501);
-            int guess;
             int guesses = 0;
 
             while (true)
@@ -309,7 +297,7 @@ namespace LearningExercises
                 Write("Guess {0} number: ",
                     guesses > 0 ? "another" : "a");
 
-                if (!int.TryParse(ReadLine(), out guess))
+                if (!int.TryParse(ReadLine(), out int guess))
                 {
                     WriteLine("You must input a number");
                     continue;
@@ -319,7 +307,7 @@ namespace LearningExercises
 
                 if (guess == number)
                 {
-                    WriteLine("Correct after {0} tries.", guesses);
+                    WriteLine($"Correct after {guesses} tries.");
                     return;
                 }
                 else if (guess < number)
@@ -354,10 +342,8 @@ namespace LearningExercises
                     return;
                 }
 
-
                 total += num;
                 i++;
-
             }
         }
 
@@ -429,8 +415,6 @@ namespace LearningExercises
 
         private static void RunExerciseEighteen()
         {
-            Random random = new Random();
-
             int length = ReadNumber<int>("How many numbers: ");
             int range = length * length + 1;
             int rlen = range.ToString().Length;
@@ -444,7 +428,8 @@ namespace LearningExercises
             for (int i = 0; i < length; i++)
                 quota[i] = 1.0 / denominator[i];
 
-            string format = "{0," + (rlen + 3) + ":0." + "".PadLeft(rlen, '0') + "}";
+            string format = 
+                "{0," + (rlen + 3) + ":0." + "".PadLeft(rlen, '0') + "}";
             foreach (double q in quota)
                 WriteLine(format, q);
         }
@@ -456,14 +441,24 @@ namespace LearningExercises
                 1000, 500, 100, 50, 20, 10, 5, 1
             };
 
-            int amountToPay = random.Next(1, coinDenominations[0] * 2 + 1);
-            WriteLine("Amount to pay: {0}", amountToPay);
+            int amountToPay = random.Next(1, coinDenominations[0] * 3 + 1);
+            WriteLine($"Amount to pay: {amountToPay}");
 
             int amountHandedOver = ReadNumber<int>("Amount handed over: ");
 
             int calculatedChange = amountHandedOver - amountToPay;
-            WriteLine("Calculated change: {0}", calculatedChange);
+            if (calculatedChange < 0)
+            {
+                WriteLine("Not enough coins.");
+                return;
+            } else if (calculatedChange == 0)
+            {
+                WriteLine("No change.");
+                return;
+            }
+            WriteLine($"Calculated change: {calculatedChange}");
 
+            WriteLine("Coin denomination distribution:");
             int denominationCount = 0;
             for (int i = 0; i < coinDenominations.Length; i++)
             {
@@ -473,7 +468,7 @@ namespace LearningExercises
                 
                 WriteLine("{0} coins = {1}", coinDenominations[i], qoutient);
             }
-            WriteLine("Denomination count: {0}", denominationCount);
+            WriteLine($"Denomination count: {denominationCount}");
         }
 
         private static void RunExerciseTwenty()
@@ -506,7 +501,33 @@ namespace LearningExercises
             WriteLine(string.Join(", ", numbers));
             WriteLine("Min: {0}", Min(numbers));
             WriteLine("Max: {0}", Max(numbers));
-            WriteLine("Mean: {0}", Mean(numbers));
+            WriteLine("Mean: {0:0.###}", Mean(numbers));
+
+            static int Min(int[] array)
+            {
+                int min = array[0];
+                for (int i = 1; i < array.Length; i++)
+                    if (array[i] < min)
+                        min = array[i];
+                return min;
+            }
+
+            static int Max(int[] array)
+            {
+                int max = array[0];
+                for (int i = 1; i < array.Length; i++)
+                    if (array[i] > max)
+                        max = array[i];
+                return max;
+            }
+
+            static double Mean(int[] array)
+            {
+                int sum = 0;
+                for (int i = 1; i < array.Length; i++)
+                    sum += array[i];
+                return sum / (double)array.Length;
+            }
         }
 
         private static void RunExerciseTwentyTwo()
@@ -514,7 +535,9 @@ namespace LearningExercises
             string[] profanityList;
             try
             {
-                profanityList = File.ReadAllLines("./Profanity.txt");
+                string path = Environment.CurrentDirectory 
+                    + "\\Profanity.txt";
+                profanityList = File.ReadAllLines(path);
             }
             catch
             {
@@ -639,14 +662,18 @@ namespace LearningExercises
 
         private static void RunExerciseTwentySix()
         {
-            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
-            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
-            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
-            WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Cookies));
-            WriteLine(Environment.CurrentDirectory);
-
             try
             {
+                WriteLine(Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyDocuments));
+                WriteLine(Environment.GetFolderPath(
+                    Environment.SpecialFolder.MyPictures));
+                WriteLine(Environment.GetFolderPath(
+                    Environment.SpecialFolder.ProgramFilesX86));
+                WriteLine(Environment.GetFolderPath(
+                    Environment.SpecialFolder.Cookies));
+                WriteLine(Environment.CurrentDirectory);
+
                 File.Create(pathNamesDesktop).Close();
             }
             catch (Exception ex)
@@ -705,8 +732,10 @@ namespace LearningExercises
         private static readonly string pathNamesDesktop = 
             Environment.GetFolderPath(Environment.SpecialFolder.Desktop) 
             + "\\Names.txt";
+
         private static readonly string pathNamesLocal = 
             Environment.CurrentDirectory + "\\Names.txt";
+
         private static readonly Random random = new Random();
-    } // class
-} // namespace
+    }
+} 
