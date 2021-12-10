@@ -552,19 +552,70 @@ namespace LearningExercises
             {
                 rnd = random.Next(1, 41);
 
-                if (!scanCompare(array, rnd, i))
+                if (Contains(array, rnd, i))
                     continue;
 
                 array[i++] = rnd;
             }
             WriteLine(String.Join(", ",array));
 
-            static bool scanCompare(int[] array, int rnd, int i)
+            static bool Contains(int[] array, int rnd, int i)
             {
                 for (int j = 0; j < i; j++)
                     if (array[j] == rnd)
-                        return false;
-                return true;
+                        return true;
+                return false;
+            }
+        }
+
+        private static void RunExerciseTwentyFour()
+        {
+            int[] deck = new int[0];
+            int[] drawn = new int[0];
+
+            FillDeck(ref deck);
+                WriteLine(String.Join(",", deck));
+            ShuffleCards(ref deck);
+                WriteLine(String.Join(",", deck));
+            PutCard(ref drawn, DrawCard(ref deck));
+                WriteLine(String.Join(",", drawn));
+                WriteLine(String.Join(",", deck));
+
+            static int DrawCard(ref int[] deck)
+            {
+                int card = deck[^1];
+                Array.Resize(ref deck, deck.Length - 1);
+                return card;
+            }
+
+            static void ShuffleCards(ref int[] deck)
+            {
+                for (int i = 0; i < deck.Length * 4; i++)
+                {
+                    int rnd = random.Next(0, deck.Length);
+                    int swap = deck[i % deck.Length];
+                    deck[i % deck.Length] = deck[rnd];
+                    deck[rnd] = swap;
+
+                }
+            }
+
+            static void FillDeck(ref int[] deck)
+            {
+                Array.Resize(ref deck, 52);
+
+                for (int i = 0, j = 1; i < deck.Length; i++)
+                {
+                    deck[i] = j;
+                    if ((i + 1) % 4 == 0)
+                        j++;
+                }
+            }
+
+            static void PutCard(ref int[] deck, int card)
+            {
+                Array.Resize(ref deck, deck.Length + 1);
+                deck[^1] = card;
             }
         }
 
