@@ -637,6 +637,22 @@ namespace LearningExercises
             }
         }
 
+        private static void RunExerciseTwentySix()
+        {
+            try
+            {
+                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
+                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures));
+                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86));
+                WriteLine(Environment.GetFolderPath(Environment.SpecialFolder.Cookies));
+                WriteLine(Environment.CurrentDirectory);
+            } 
+            catch (Exception ex)
+            {
+                WriteLine($"{ex.Message}");
+            }
+        }
+
         private static readonly Random random = new Random();
     } // class
 } // namespace
