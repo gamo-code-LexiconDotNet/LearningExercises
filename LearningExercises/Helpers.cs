@@ -10,6 +10,9 @@ namespace LearningExercises
             string msg = "Input a number: ",
             string err = "You must input a number: ")
         {
+            if (!IsNumeric(typeof(T)))
+                throw new ArgumentException("Type of T must be numerical.");
+
             T num;
             string input;
 
@@ -78,6 +81,37 @@ namespace LearningExercises
             for (int i = 1; i < array.Length; i++)
                 sum += array[i];
             return sum / (double)array.Length;
+        }
+
+        // from stackoverflow
+        public static bool IsNumeric(Type type)
+        {
+            if (type == null)
+                return false;
+
+            if (type.IsGenericType 
+                && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                type = type.GetGenericArguments()[0];
+            }
+
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                case TypeCode.SByte:
+                case TypeCode.UInt16:
+                case TypeCode.UInt32:
+                case TypeCode.UInt64:
+                case TypeCode.Int16:
+                case TypeCode.Int32:
+                case TypeCode.Int64:
+                case TypeCode.Decimal:
+                case TypeCode.Double:
+                case TypeCode.Single:
+                    return true;
+                default:
+                    return false;
+            }
         }
     }
 }

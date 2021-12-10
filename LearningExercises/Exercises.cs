@@ -619,6 +619,24 @@ namespace LearningExercises
             }
         }
 
+        private static void RunExerciseTwentyFive()
+        {
+            int a = ReadNumber<int>();
+            int b = ReadNumber<int>();
+
+            try
+            {
+               WriteLine("{0}", a / b);
+            } catch (DivideByZeroException ex)
+            {
+                WriteLine(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                WriteLine(ex.Message);
+            }
+        }
+
         private static readonly Random random = new Random();
     } // class
 } // namespace
